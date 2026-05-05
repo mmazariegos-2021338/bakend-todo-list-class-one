@@ -1,0 +1,13 @@
+{
+  "name": "todo-list-backend",
+  "version": "1.0.0",
+  "description": "Backend para control de Tareas y Metas personales",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
+  },
+  "keywords": ["todo", "tasks", "goals", "express"],
+  "author": "",
+  "license": "ISC"
+}
