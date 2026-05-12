@@ -4,12 +4,13 @@ Backend para llevar el control de Tareas y Metas personales (ToDo List), constru
 
 ## Descripción
 
-Esta aplicación permite agregar y eliminar tareas y metas personales. Los datos se manejan en memoria (no persisten en una base de datos).
+Esta aplicación permite crear, consultar y eliminar tareas y metas personales con persistencia en MongoDB.
 
 ## Requisitos
 
 - Node.js LTS (versión 18.x o superior)
 - npm
+- MongoDB (local o Atlas)
 
 ## Instalación
 
@@ -20,6 +21,12 @@ Esta aplicación permite agregar y eliminar tareas y metas personales. Los datos
 npm install
 ```
 
+3. Crear archivo `.env` usando `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
 ## Ejecutar el proyecto
 
 ```bash
@@ -27,6 +34,9 @@ npm start
 ```
 
 El servidor estará disponible en `http://localhost:3000`
+
+> La conexión a MongoDB se realiza al iniciar el backend.  
+> Si falla la conexión, el servidor no arranca.
 
 ## Endpoints
 
@@ -43,6 +53,39 @@ El servidor estará disponible en `http://localhost:3000`
 
 Todos los endpoints requieren un header `Authorization` con una API key válida.
 
-## Configuración de API Key
+## Variables de entorno
 
-La API key debe configurarse en las variables de entorno (`process.env.API_KEY`).
+- `PORT`: puerto del servidor (default `3000`)
+- `API_KEY`: valor esperado en header `Authorization`
+- `MONGODB_URI`: cadena de conexión de MongoDB
+
+## Ejemplos de payloads
+
+### POST /addTask
+
+```json
+{
+  "title": "Terminar actividad de backend",
+  "description": "Crear endpoints con persistencia",
+  "dueDate": "2026-05-27T00:00:00.000Z",
+  "completed": false
+}
+```
+
+### POST /addGoal
+
+```json
+{
+  "title": "Completar Unidad V",
+  "description": "Entregar repositorio con CRUD funcional",
+  "targetDate": "2026-05-27T00:00:00.000Z"
+}
+```
+
+### DELETE /removeTask y /removeGoal
+
+```json
+{
+  "id": "681ff4b8ae3f78f8f88db6c1"
+}
+```
