@@ -9,7 +9,7 @@ const authMiddleware = (req, res, next) => {
   }
 
   if (authHeader !== API_KEY) {
-    return res.status(403).json({ error: 'API key inválida' });
+    return res.status(401).json({ error: 'API key invalida' });
   }
 
   next();

@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Rutas
-app.use('/tasks', tasksRouter);
-app.use('/goals', goalsRouter);
+app.use('/', tasksRouter);
+app.use('/', goalsRouter);
 
 // Iniciar servidor
 app.listen(PORT, () => {

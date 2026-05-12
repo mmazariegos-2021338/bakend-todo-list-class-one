@@ -10,6 +10,10 @@ const getTasks = () => tasks;
 
 const getGoals = () => goals;
 
+const hasTask = (id) => tasks.some((task) => task.id === id);
+
+const hasGoal = (id) => goals.some((goal) => goal.id === id);
+
 const addTask = (task) => {
   const newTask = {
     id: generateId(),
@@ -44,5 +48,7 @@ module.exports = {
   addTask,
   addGoal,
   removeTask,
-  removeGoal
+  removeGoal,
+  hasTask,
+  hasGoal
 };

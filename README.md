@@ -6,6 +6,8 @@ Backend para llevar el control de Tareas y Metas personales (ToDo List), constru
 
 Esta aplicación permite agregar y eliminar tareas y metas personales. Los datos se manejan en memoria (no persisten en una base de datos).
 
+Como parte de la Unidad IV, el backend devuelve codigos HTTP para reflejar correctamente el resultado de cada solicitud.
+
 ## Requisitos
 
 - Node.js LTS (versión 18.x o superior)
@@ -46,3 +48,9 @@ Todos los endpoints requieren un header `Authorization` con una API key válida.
 ## Configuración de API Key
 
 La API key debe configurarse en las variables de entorno (`process.env.API_KEY`).
+
+## Codigos de respuesta
+
+- `200`: solicitud satisfactoria.
+- `401`: API key incorrecta o no enviada.
+- `400`: parametros invalidos al crear o eliminar tareas/metas.
